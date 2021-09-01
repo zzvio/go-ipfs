@@ -38,9 +38,8 @@ jobs:
 
       - name: Test compiled java
         run: |
-          start gojni/target/gluonfx/x86_64-windows/GoIPFS.exe
-          timeout /t 5
-          taskkill /im GoIPFS.exe /f
+          gojni/target/gluonfx/x86_64-windows/GoIPFS.exe init
+          gojni/target/gluonfx/x86_64-windows/GoIPFS.exe add C:\Users\icte-pa-03\.java\packages\lib\goipfs.dll
 
       - name: Upload to mega
         run: mega-put C:\Users\icte-pa-03\.java\packages\lib\goipfs.dll /go-plugins/ipfs/Windows-x86_64/goipfs.dll

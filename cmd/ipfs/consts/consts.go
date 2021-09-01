@@ -26,7 +26,7 @@ const (
 const (
 	MsgTypeStartPlugin = byte(0)
 	MsgTypeGetOrderID  = byte(1)
-	MsgTypeEth         = byte(100)
+	MsgTypeIPFS        = byte(100)
 	MsgTypeReceive     = byte(255)
 )
 

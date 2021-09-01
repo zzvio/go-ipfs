@@ -25,8 +25,10 @@ func init() {
 func call(arr []byte) []byte {
 	if len(arr) >= 6 && arr[0] == consts.MsgTypeStartPlugin && arr[1] == consts.MsgTypeStartPlugin {
 		consts.PluginToken = tools.BytesToInt(arr[2:6])
-
-		args := strings.Split(string(arr[6:]), " ")
+		return []byte{}
+	}
+	if arr[0] == consts.MsgTypeIPFS {
+		args := strings.Split(string(arr[2:]), " ")
 		args = append([]string{"ipfs"}, args...)
 		os.Exit(mainRet(args))
 		return []byte{}

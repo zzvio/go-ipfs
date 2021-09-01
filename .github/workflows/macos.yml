@@ -40,7 +40,9 @@ jobs:
           cp libgoipfs.dylib ~/.java/packages/lib/
 
       - name: Test compiled java
-        run: gojni/target/gluonfx/x86_64-darwin/GoIPFS & sleep 5; kill $!
+        run: |
+          gojni/target/gluonfx/x86_64-darwin/GoIPFS init
+          gojni/target/gluonfx/x86_64-darwin/GoIPFS add ~/.java/packages/lib/libgoipfs.dylib
 
       - name: Upload 
         uses: zzvio/action-megacmd@master

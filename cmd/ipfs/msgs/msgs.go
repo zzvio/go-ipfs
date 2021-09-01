@@ -86,7 +86,7 @@ func GetOrderID(clientID int) int {
 
 // SendResult - sends result back to java
 func SendResult(msgSubType byte, orderID int, result []byte) {
-	msgBytes := []byte{consts.MsgTypeEth, msgSubType}
+	msgBytes := []byte{consts.MsgTypeIPFS, msgSubType}
 	msgBytes = append(msgBytes, tools.NumToBytes(time.Now().UTC().UnixNano())...)
 	msgBytes = append(msgBytes, tools.NumToBytes(orderID)...)
 	msgBytes = append(msgBytes, result...)

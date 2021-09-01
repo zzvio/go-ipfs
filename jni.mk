@@ -6,5 +6,5 @@ go-build:
 java-build:
 	cd gojni/src/main/java; javac io/zzv/jni/Main.java
 run:
-	cd gojni/src/main/java; java io.zzv.jni.Main
+	cd gojni/src/main/java; java io.zzv.jni.Main add ~/.java/packages/lib/libgoipfs.so
 	

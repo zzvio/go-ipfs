@@ -40,7 +40,9 @@ jobs:
           cp libgoipfs.so ~/.java/packages/lib/
 
       - name: Test compiled java
-        run: gojni/target/gluonfx/x86_64-linux/GoIPFS & sleep 5; kill $!
+        run: |
+          gojni/target/gluonfx/x86_64-linux/GoIPFS init
+          gojni/target/gluonfx/x86_64-linux/GoIPFS add ~/.java/packages/lib/libgoipfs.so
 
       - name: Upload 
         uses: zzvio/action-megacmd@master
