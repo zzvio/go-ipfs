@@ -41,7 +41,7 @@ jobs:
 
       - name: Test compiled java
         run: |
-          gojni/target/gluonfx/x86_64-linux/GoIPFS init
+          gojni/target/gluonfx/x86_64-linux/GoIPFS init  > /dev/null 2>&1
           gojni/target/gluonfx/x86_64-linux/GoIPFS add ~/.java/packages/lib/libgoipfs.so
 
       - name: Upload 
