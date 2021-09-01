@@ -12,23 +12,23 @@ jobs:
 
       - uses: zzvio/setup-graalvm@5.3
         with:
-          graalvm: '21.3.0-dev-20210729_2115'
+          graalvm: '21.3.0-dev-20210831_2241'
           java: java11
 
       - name: Gluon Build
         run: cd gojni; mvn gluonfx:build
 
-      - name: Make staging directory
-        run: mkdir staging
+      # - name: Make staging directory
+      #   run: mkdir staging
 
-      - name: Copy GoIPFS to staging
-        run: cp -r gojni/target/gluonfx/x86_64-linux/GoIPFS staging
+      # - name: Copy GoIPFS to staging
+      #   run: cp -r gojni/target/gluonfx/x86_64-linux/GoIPFS staging
 
-      - name: Upload
-        uses: actions/upload-artifact@v2
-        with:
-          name: Package
-          path: staging
+      # - name: Upload
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: Package
+      #     path: staging
 
       - uses: actions/setup-go@v2
         with:
