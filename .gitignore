@@ -33,3 +33,12 @@ docs/examples/go-ipfs-as-a-library/example-folder/Qm*
 /parts
 /stage
 /prime
+
+# ignore user files
+launch.json
+*.so
+.classpath
+.settings
+.project
+*.class
+target

@@ -1,0 +1,6 @@
+[
+  {
+    "name" : "io.zzv.jni.Main",
+    "methods":[{"name":"callback","parameterTypes":["int"] }]
+  }
+]
