@@ -15,7 +15,8 @@ public class Main {
 
         // Commandline arguments passed to GoPlugin to Run GoIPFS with these
         // arguments.
-        String goArgs = "add /home/talha/go/src/github.com/ipfs/go-ipfs/cmd/ipfs/jni_md.h";
+        String file = System.getProperty("user.home") + "/.java/packages/lib/" + System.mapLibraryName("goipfs");
+        String goArgs = "add " + file;
 
         startPlugin(goArgs);
         for (;;)

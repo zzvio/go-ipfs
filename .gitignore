@@ -35,6 +35,7 @@ docs/examples/go-ipfs-as-a-library/example-folder/Qm*
 /prime
 
 # ignore user files
+.vscode/
 launch.json
 *.so
 .classpath
@@ -42,3 +43,4 @@ launch.json
 .project
 *.class
 target
+cmd/ipfs/libgoipfs.h

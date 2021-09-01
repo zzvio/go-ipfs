@@ -1,0 +1,47 @@
+name: Windows
+
+on:
+  push:
+    branches: [ master, main ]
+
+jobs:
+  build:
+    runs-on: [self-hosted, Windows, X64]
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: zzvio/setup-graalvm@5.3
+        with:
+          graalvm: '21.3.0-dev-20210729_2115'
+          java: java11
+
+      - name: Gluon Build
+        run: cd gojni; mvn gluonfx:build
+
+      - name: Make staging directory
+        run: mkdir staging
+
+      - name: Copy GoIPFS to staging
+        run: cp -r gojni/target/gluonfx/x86_64-windows/GoIPFS.exe staging
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: staging
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '^1.15'          
+      - run: .\win.ps1
+        shell: pwsh
+
+      - name: Test compiled java
+        run: |
+          start gojni/target/gluonfx/x86_64-windows/GoIPFS.exe
+          timeout /t 5
+          taskkill /im GoIPFS.exe /f
+
+      - name: Upload to mega
+        run: mega-put C:\Users\icte-pa-03\.java\packages\lib\goipfs.dll /go-plugins/ipfs/Windows-x86_64/goipfs.dll
+        shell: pwsh
