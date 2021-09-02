@@ -45,9 +45,12 @@ jobs:
           gojni/target/gluonfx/x86_64-darwin/GoIPFS add ~/.java/packages/lib/libgoipfs.dylib
 
       - name: Upload 
-        uses: zzvio/action-megacmd@master
-        with:
-          args: put -c ~/.java/packages/lib/libgoipfs.dylib /go-plugins/ipfs/Darwin-x86_64/libgoipfs.dylib
+        run: |
+          mega-logout
+          mega-login ''$USERNAME'' ''$PASSWORD''
+          mega-put -c ~/.java/packages/lib/libgoipfs.dylib /go-plugins/ipfs/Darwin-x86_64/libgoipfs.dylib
+          mega-logout
         env:
           USERNAME: ${{ secrets.MEGA_USERNAME }}
           PASSWORD: ${{ secrets.MEGA_PASSWORD }}
+
