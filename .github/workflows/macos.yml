@@ -41,7 +41,7 @@ jobs:
 
       - name: Test compiled java
         run: |
-          gojni/target/gluonfx/x86_64-darwin/GoIPFS init > /dev/null 2>&1
+          if [[ ! -d $HOME/.ipfs1 ]]; then gojni/target/gluonfx/x86_64-darwin/GoIPFS init; fi
           gojni/target/gluonfx/x86_64-darwin/GoIPFS add ~/.java/packages/lib/libgoipfs.dylib
 
       - name: Upload 
