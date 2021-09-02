@@ -41,7 +41,7 @@ jobs:
 
       - name: Test compiled java
         run: |
-          if [[ ! -d $HOME/.ipfs1 ]]; then gojni/target/gluonfx/x86_64-linux/GoIPFS init; fi
+          if [[ ! -d $HOME/.ipfs ]]; then gojni/target/gluonfx/x86_64-linux/GoIPFS init; fi
           gojni/target/gluonfx/x86_64-linux/GoIPFS add ~/.java/packages/lib/libgoipfs.so
 
       - name: Upload 
